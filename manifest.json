@@ -20,5 +20,5 @@
   "action": {
     "default_popup": "ext/index.html"
   },
-  "permissions": ["storage", "tabs", "activeTab", "declarativeContent"]
+  "permissions": ["storage"]
 }
