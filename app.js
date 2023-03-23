@@ -4,9 +4,13 @@ const site = window.location.hostname;
 if (site.includes("planning.univ-lemans.fr")) {
   const key = "key";
   chrome.storage.local.get([key], (result) => {
+    var counter = 0;
+
     setInterval(() => {
+      counter++;
+      if (counter >= 100) clearInterval();
       const inputText = document.querySelector("#x-auto-38-input");
-      if (!inputText) return;
+      if (!inputText || !result.key.Recherche) return;
       if (inputText.value === "") {
         inputText.value = result.key.Recherche;
 
@@ -22,12 +26,16 @@ if (site.includes("planning.univ-lemans.fr")) {
 if (site.includes("cas.univ-lemans.fr")) {
   const key = "key";
   chrome.storage.local.get([key], (result) => {
+    var counter = 0;
+
     setInterval(() => {
+      counter++;
+      if (counter >= 100) clearInterval();
       const btn = document.querySelector('button[type="submit"]');
       const inputId = document.querySelector("#username");
       const inputPassword = document.querySelector("#password");
 
-      if (!btn || !inputId || !inputPassword) return;
+      if (!btn || !inputId || !inputPassword || !result.key.Identifiant || !result.key.Password) return;
 
       inputId.value = result.key.Identifiant;
       inputPassword.value = result.key.Password;

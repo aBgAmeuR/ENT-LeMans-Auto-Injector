@@ -17,3 +17,7 @@ document.addEventListener("keyup", () => {
 	const value = { Recherche: valueRecherche, Identifiant: valueIdentifiant, Password: valuePassword };
 	chrome.storage.local.set({ key: value });
 });
+
+document.querySelector("#close").addEventListener("click", () => {
+	window.close();
+});
